@@ -1,0 +1,54 @@
+# 1. Introduction and Overview of Containers
+
+# Containers:
+**Container** is a running instance of a **Container Image**.
+A *Container Image** is a single file (tarball), loaded with metadata, that has all the files needed by your application.
+The **Entry Point** is the command used to start your **Container**, this can be any process.
+
+Technologies Powering Containerization ----> Kernel namespaces, SECComp, SELinux, Control Groups(cgroups).
+These are in-built into the linux kernel
+
+Kernel namespaces:
+It represents a partition or a boundary. For example namespace1 can only access the files, process and memory which is specified in metadata.
+
+Control Groups(cgroups):
+They help us set limitations with our system resources. For example namespace1 those processes are allowed to access 1GB Memory and 1 CPU.
+
+SECComp:
+Think of it as a allow and a deny list of those system cores that are going to be allowed from your namespaces.
+
+# End State:
+Container Images:
+- buildah
+- ppodman
+- prebuilt from registry
+
+Container RunTime
+- runC
+- cri-o
+- docker
+
+Container Management Tools:
+- podman
+- docker
+- kubernetes
+- openshift is a kubernetes distribution
+
+Where to get container images:
+- registry.redhat.io
+- registry.connect.redhat.com
+- quay.io (Community Contributed)
+- other registries
+
+Different Between Virtual Machines and Containers
+
+| Virtual Machines | Containers |
+| --- | --- |
+| Started from a vm image | Started from container image |
+| Image is larger (many GiB) | Image is smaller (~100 Mib) |
+| Has boot loaders, kernel, systemd | No boot loaders or kernel, may have systemd to start some system process |
+| Has a hypervisor | No hypervisor, uses container engine (docker,podman,etc) |
+| Uses few resources | Uses few resources |
+| Has low level access to hardware | Has no level access to hardware |
+| Lower level access to Hardware | limited access to Hardware |
+| More Resources Required | Lightweight and can be rootless |
